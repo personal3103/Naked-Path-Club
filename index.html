@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#050505">
+<title>Naked Path - Trình đọc truyện</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <div class="app">
+    <div id="sidebarBackdrop" class="sidebar-backdrop" aria-hidden="true"></div>
+    <aside id="sidebar" class="sidebar" aria-label="Danh sách tập">
+      <div class="sidebar-header">
+        <div class="brand">
+          <div class="brand-mark">NP</div>
+          <div>
+            <h1>Naked Path</h1>
+            <p>Trình đọc truyện</p>
+          </div>
+        </div>
+        <button id="btnCloseSidebar" class="btn-icon sidebar-close" type="button" title="Đóng danh sách tập" aria-label="Đóng danh sách tập">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="sidebar-actions">
+        <button id="btnContinue" class="btn-ghost" type="button" title="Tiếp tục đọc vị trí đã đánh dấu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h14v16l-7-4-7 4V4z"/></svg>
+          Tiếp tục
+        </button>
+      </div>
+      <nav id="episodeList" class="episode-list"></nav>
+      <div class="sidebar-footer">
+        <span id="storageInfo">Lưu trữ: localStorage</span>
+      </div>
+    </aside>
+
+    <main class="reader">
+      <header class="reader-header">
+        <button id="btnMenu" class="btn-icon menu-toggle" type="button" title="Mở danh sách tập" aria-label="Mở danh sách tập" aria-controls="sidebar" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <div class="reader-title">
+          <span class="eyebrow" id="currentGroup">-</span>
+          <h2 id="currentTitle">Chọn một tập để bắt đầu</h2>
+        </div>
+        <div class="reader-meta">
+          <span id="readProgress">0%</span>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+      </header>
+
+      <article id="content" class="content"></article>
+
+      <div class="reader-footer">
+        <button id="btnPrev" class="btn-ghost" type="button">Tập trước</button>
+        <button id="btnNext" class="btn-ghost" type="button">Tập sau</button>
+      </div>
+    </main>
+  </div>
+
+  <button id="btnBookmark" class="fab-bookmark" type="button" title="Đánh dấu vị trí đang đọc" aria-label="Đánh dấu vị trí đang đọc">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+    </svg>
+  </button>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="data.js" charset="utf-8"></script>
+  <script src="app.js" charset="utf-8"></script>
+</body>
+</html>
